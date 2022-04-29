@@ -5,7 +5,7 @@ export const signp = (payload) => {
   return async (dispatch) => {
     try {
       dispatch(authtLoader(true));
-      const res = await authInstance.post("auth/signUp", payload);
+      const res = await authInstance.post("user/signUp", payload);
 
       localStorage.setItem("token", JSON.stringify(res));
       const temp = localStorage.getItem("token");
@@ -23,7 +23,7 @@ export const login = (payload) => {
   return async (dispatch) => {
     try {
       dispatch(authtLoader(true));
-      const res = await authInstance.post("/auth/login", payload);
+      const res = await authInstance.post("user/login", payload);
       console.log("response data", res);
 
       localStorage.setItem("token", JSON.stringify(res));
